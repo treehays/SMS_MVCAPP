@@ -27,26 +27,26 @@ namespace SMS_MVCAPP.Repositories.Implementations
 
         public IList<User> GetAllUser()
         {
-            var users = _context.users.ToList();
-            return users;
+            var admins = _context.users.ToList();
+            return admins;
         }
 
         public User GetUserByEmail(string Email)
         {
-            var user = _context.users.SingleOrDefault(x => x.Email == Email);
-            return user;
+            var admin = _context.users.SingleOrDefault(x => x.Email == Email);
+            return admin;
         }
 
         public User GetUserByStaffId(string staffId)
         {
-            var user = _context.users.Find(staffId);
-            return user;
+            var admin = _context.users.Find(staffId);
+            return admin;
         }
 
         public User LoginUser(User user)
         {
-            var users = _context.users.SingleOrDefault(x => x.StaffId == user.StaffId && x.Password == user.Password);
-            return user;
+            var admin = _context.users.SingleOrDefault(x => x.StaffId == user.StaffId && x.Password == user.Password);
+            return admin;
         }
 
         public User UpdateUser(User user)
