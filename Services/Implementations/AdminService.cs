@@ -57,13 +57,20 @@ namespace SMS_MVCAPP.Services.Implementations
 
         public User UpdateUser(User user)
         {
-            var admin= _adminRepository.UpdateUser(user);
+            var admin = _adminRepository.GetUserByStaffId(user.StaffId);
+            admin.FirstName = user.FirstName;
+            admin.LastName = user.LastName;
+            admin.HomeAddress = user.HomeAddress;
+            admin.PhoneNumber = user.PhoneNumber;
+            _adminRepository.UpdateUser(user);
             return admin;
         }
 
         public User UpdateUserPassword(User user)
         {
-            var admin = _adminRepository.UpdateUserPassword(user);
+            var admin = _adminRepository.GetUserByStaffId(user.StaffId);
+            admin.Password = user.Password;
+            _adminRepository.UpdateUserPassword(user);
             return admin;
         }
     }
