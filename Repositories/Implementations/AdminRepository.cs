@@ -49,6 +49,7 @@ namespace SMS_MVCAPP.Repositories.Implementations
             return admin;
         }
 
+
         public User UpdateUser(User user)
         {
             _context.users.Update(user);

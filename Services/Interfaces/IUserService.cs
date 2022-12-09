@@ -7,6 +7,7 @@ namespace SMS_MVCAPP.Services.Interfaces
         User CreateUser(User user);
         User LoginUser(User user);
         void DeleteUser(User user);
+        //void DeleteUserByEmail(User user);
         User GetUserByStaffId(string staffId);
         User GetUserByEmail(string Email);
         IList<User> GetAllUser();

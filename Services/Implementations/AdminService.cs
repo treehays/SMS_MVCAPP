@@ -13,6 +13,8 @@ namespace SMS_MVCAPP.Services.Implementations
             _adminRepository = adminRepository;
         }
 
+        
+        //done
         public User CreateUser(User user)
         {
             user.RegisteredDate = DateTime.Now.ToShortDateString();
@@ -24,53 +26,61 @@ namespace SMS_MVCAPP.Services.Implementations
             _adminRepository.CreateUser(user);
             return user;
         }
-
+        
+        //done
         public void DeleteUser(User user)
         {
             var admin = _adminRepository.GetUserByStaffId(user.StaffId);
             _adminRepository.DeleteUser(admin);
-        }
-
+        }     
+        
+        //done
         public IList<User> GetAllUser()
         {
             var listOfAdmin = _adminRepository.GetAllUser();
             return listOfAdmin;
         }
 
+       
+        //done
         public User GetUserByEmail(string Email)
         {
             var admin = _adminRepository.GetUserByEmail(Email);
             return admin;
         }
 
+        //done
         public User GetUserByStaffId(string staffId)
         {
-            var admin = _adminRepository.GetUserByEmail(staffId);
+            var admin = _adminRepository.GetUserByStaffId(staffId);
             return admin;
         }
 
+        //done
         public User LoginUser(User user)
         {
             var admin = _adminRepository.LoginUser(user);
             return admin;
         }
 
+        //done
         public User UpdateUser(User user)
         {
             var admin = _adminRepository.GetUserByStaffId(user.StaffId);
-            admin.FirstName = user.FirstName;
-            admin.LastName = user.LastName;
-            admin.HomeAddress = user.HomeAddress;
-            admin.PhoneNumber = user.PhoneNumber;
-            _adminRepository.UpdateUser(user);
+            admin.FirstName = user.FirstName ?? admin.FirstName;
+            admin.LastName = user.LastName ?? admin.LastName ;
+            admin.HomeAddress = user.HomeAddress ?? admin.HomeAddress;
+            //admin.PhoneNumber = user.PhoneNumber ?? admin.PhoneNumber;
+            _adminRepository.UpdateUser(admin);
             return admin;
         }
 
+        //done
         public User UpdateUserPassword(User user)
         {
             var admin = _adminRepository.GetUserByStaffId(user.StaffId);
-            admin.Password = user.Password;
-            _adminRepository.UpdateUserPassword(user);
+            admin.Password = user.Password ?? admin.Password;
+            _adminRepository.UpdateUserPassword(admin);
             return admin;
         }
     }

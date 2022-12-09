@@ -1,0 +1,51 @@
+﻿@model SMS_MVCAPP.Models.Entities.User
+@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@*
+		
+*@
+
+<p>Registration Page </p>
+<div>
+	<form asp-action="CreateAdmin">
+		<div>
+			<label for="email" asp-for="Email"></label>
+			<input type="email" placeholder="example@mail.com" id="email" name="Email" />
+		</div>
+
+		<div>
+			<label for="fname" asp-for="FirstName"></label>
+			<input id="fname" name="FirstName" />
+		</div>
+
+		<div>
+			<label for="lname" asp-for="LastName"></label>
+			<input id="lname" name="LastName" />
+		</div>
+		<div>
+			<label for="gen" asp-for="Gender"></label>
+			<input id="gen" name="Gender" />
+		</div>
+		<div>
+			<label for="addr" asp-for="HomeAddress"></label>
+			<input id="addr" name="HomeAddress" />
+		</div>
+		<div>
+			<label for="gar" asp-for="GuarantorName"></label>
+			<input id="gar" name="GuarantorName" />
+		</div>
+		<div>
+			<label for="pwd" asp-for="Password"></label>
+			<input type="password" id="pwd" name="Password" />
+		</div>
+		<div>
+			<label for="pno" asp-for="PhoneNumber"> </label>
+			<input type="tel" id="pno" pattern="[0]{1}[7-9]{1}[0-1]{1}[0-9]{8}" placeholder="08123456789" name="PhoneNumber" />
+		</div>
+
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
+</div>

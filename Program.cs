@@ -1,13 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using SMS_MVCAPP.Context;
+using SMS_MVCAPP.Repositories.Implementations;
+using SMS_MVCAPP.Repositories.Interfaces;
+using SMS_MVCAPP.Services.Implementations;
+using SMS_MVCAPP.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddMvc();
+//builder.Services.AddMvc();
 var configuration = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySql(configuration, ServerVersion.AutoDetect(configuration)));
+builder.Services.AddScoped<IUserRepository, AdminRepository>();
+builder.Services.AddScoped<IUserService, AdminService>();
 
 var app = builder.Build();
 

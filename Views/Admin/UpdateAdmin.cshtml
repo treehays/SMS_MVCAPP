@@ -1,0 +1,42 @@
+﻿@model SMS_MVCAPP.Models.Entities.User
+@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+
+<div>
+	<p>Update Profile..</p>
+</div>
+
+<div>
+	<a asp-action="GetAllAdmins" > Get All Admin..</a>
+</div>
+
+<div>
+	<form asp-action="UpdateAdmin" method="post">
+		<div>
+			<input name="StaffId" value="@Model.StaffId" readonly hidden />
+		</div>
+
+		<div>
+			<label for="fname" asp-for="FirstName"></label>
+			<input id="fname" name="FirstName"  value="@Model.FirstName">
+		</div>
+
+		<div>
+			<label for="lname" asp-for="LastName"></label>
+			<input id="lname" name="LastName" value="@Model.LastName">
+		</div>
+
+		<div>
+			<label for="addr" asp-for="HomeAddress"></label>
+			<input id="addr" name="HomeAddress" value="@Model.HomeAddress">
+		</div>
+
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
+</div>
