@@ -37,7 +37,8 @@ namespace SMS_MVCAPP.Services.Implementations
 		
 		public IList<User> GetAllUser()
 		{
-			var listOfAttendant = _attendantRepository.GetAllUser();
+			//var listOfAttendant = _attendantRepository.GetAllUser();
+			var listOfAttendant = _attendantRepository.GetAllUser().Where(x => x.UserRole == (int)UserRole.Attendant).Select(x => x).ToList();
 			return listOfAttendant;
 		}
 

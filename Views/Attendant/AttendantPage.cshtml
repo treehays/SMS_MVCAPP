@@ -3,3 +3,19 @@
 *@
 @{
 }
+
+@{
+    ViewData["Title"] = "Attendant Dashboard";
+}
+
+@if (TempData["Sucess"] != null)
+{
+    <h2>@TempData["sucess"]</h2>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Logged in successful</h1>
+
+    <p>Attendant <a asp-area="" asp-controller="Attendant" asp-action="GetAllAttendants">GO HOME</a>.</p>
+
+</div>

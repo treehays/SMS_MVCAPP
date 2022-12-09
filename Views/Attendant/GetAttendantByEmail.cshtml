@@ -1,5 +1,31 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@model SMS_MVCAPP.Models.Entities.User
+@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+
+<div>
+	<p> <a asp-action="GetAllAttendant">View all admin.</a></p>
+</div>
+<div>
+	<h1> Details...</h1>
+</div>
+<div>
+
+	<h4>@DateTime.Now</h4>
+</div>
+<div>
+	<p>@Html.DisplayFor(x => x.Email) </p>
+	<p> @Model.StaffId </p>
+	<p> @Model.FirstName @Model.LastName</p>
+	<p> @Model.PhoneNumber </p>
+	<p> @Model.Password</p>
+	<p> @Model.UserRole</p>
+	<p> @Model.RegisteredDate</p>
+	<p> @Model.GuarantorName</p>
+
+</div>
+<div>
+	@*<p><a asp-action="DeleteAdmin" asp-route-staffId="@Model.StaffId">Delete..</a></p>*@
+</div>

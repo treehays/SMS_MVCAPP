@@ -6,26 +6,23 @@
 }
 
 <div>
-	<p> <a asp-action="GetAllAttendant">View all attendants.</a></p>
+	@*<p> <a asp-action="GetAllAdmin">View all admin.</a></p>*@
 </div>
 <div>
-	<h1> Details...</h1>
+	<h1>@Model.StaffId Details...</h1>
 </div>
-<div>
 
-	<h4>@DateTime.Now</h4>
-</div>
 <div>
 	<p>@Html.DisplayFor(x => x.StaffId) </p>
 	<p> @Model.Email </p>
-	<p> @Model.FirstName @Model.LastName</p>
+	<p> @Model.FirstName  @Model.LastName </p>
 	<p> @Model.PhoneNumber </p>
 	<p> @Model.Password</p>
 	<p> @Model.UserRole</p>
 	<p> @Model.RegisteredDate</p>
 	<p> @Model.GuarantorName</p>
-
 </div>
 <div>
-	@*<p><a asp-action="DeleteAdmin" asp-route-staffId="@Model.StaffId">Delete..</a></p>*@
+	@*<p><a asp-action="DeleteAdmin" asp-route-staffId="@Model.StaffId">Delete..</a> </p>*@
+	<p> Do you want to delete? <a asp-action="DeleteAttendant" asp-route-staffId="@Model.StaffId">Confirm.</a>|| <a asp-action="GetAllAttendant">Reject.</a></p>
 </div>

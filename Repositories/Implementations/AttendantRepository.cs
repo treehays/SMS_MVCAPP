@@ -25,7 +25,7 @@ namespace SMS_MVCAPP.Repositories.Implementations
 			_context.SaveChanges();
 		}
 
-		public IList<User> GetAllUser()
+		public List<User> GetAllUser()
 		{
 			var attendant = _context.users.ToList();
 			return attendant;

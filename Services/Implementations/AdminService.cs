@@ -37,7 +37,9 @@ namespace SMS_MVCAPP.Services.Implementations
         //done
         public IList<User> GetAllUser()
         {
-            var listOfAdmin = _adminRepository.GetAllUser();
+            //var listOfAdmin = _adminRepository.GetAllUser();
+            //var listOfAdmin = _adminRepository.GetAllUser().Select(x => x.UserRole == (int)UserRole.Admin).ToList();
+            var listOfAdmin = _adminRepository.GetAllUser().Where(x => x.UserRole == (int)UserRole.Admin).Select(x => x).ToList();
             return listOfAdmin;
         }
 

@@ -9,7 +9,7 @@ namespace SMS_MVCAPP.Repositories.Interfaces
         void DeleteUser(User user);
         User GetUserByStaffId(string staffId);
         User GetUserByEmail(string Email);
-        IList<User> GetAllUser();
+        List<User> GetAllUser();
         User UpdateUser(User user);
         User UpdateUserPassword(User user);
         //User Login(string staffId, string pin);

@@ -14,6 +14,8 @@ var configuration = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySql(configuration, ServerVersion.AutoDetect(configuration)));
 builder.Services.AddScoped<IUserRepository, AdminRepository>();
 builder.Services.AddScoped<IUserService, AdminService>();
+builder.Services.AddScoped<IUserRepository, AttendantRepository>();
+builder.Services.AddScoped<IUserService, AttendantService>();
 
 var app = builder.Build();
 

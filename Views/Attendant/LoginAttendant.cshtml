@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@model SMS_MVCAPP.Models.Entities.User
+@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+
+<div>
+	<p>Attendant Login Page </p>
+	<form asp-action="LoginAttendant">
+		<div>
+			<label for="sid" asp-for="StaffId"></label>
+			<input id="sid" name="StaffId" />
+		</div>
+
+		<div>
+			<label for="pwd" asp-for="Password"></label>
+			<input type="password" id="pwd" name="Password" />
+		</div>
+		<div>
+			<input type="submit" value="Submit" />
+		</div>
+	</form>
+</div>

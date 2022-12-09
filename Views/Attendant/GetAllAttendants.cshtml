@@ -1,5 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@model IEnumerable<SMS_MVCAPP.Models.Entities.User>
+@*
+	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+
+<div>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th> Staff ID </th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Guarantor</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.StaffId</td>
+					<td>@item.FirstName</td>
+					<td>@item.LastName</td>
+					<td>@item.Email</td>
+					<td>@item.PhoneNumber</td>
+					<td>@item.GuarantorName</td>
+					@*<td> <a asp-action="DeleteAdmin" asp-route-staffId="@item.StaffId">Delete..</a></td>*@
+					<td> <a asp-action="GetAttendantByStaffId" asp-route-staffId="@item.StaffId">GEt by Id..</a></td>
+					<td><a asp-action="GetAttendantByEmail" asp-route-email="@item.Email">Get by Email...</a></td>
+					<td><a asp-action="DeleteAttendantConfirmPage" asp-route-staffId="@item.StaffId">Delete by StaffId...</a></td>
+					<td><a asp-action="UpdateAttendant" asp-route-staffId="@item.StaffId">Update...</a></td>
+					<td><a asp-action="UpdateAttendantPassword" asp-route-staffId="@item.StaffId">Update Password...</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
