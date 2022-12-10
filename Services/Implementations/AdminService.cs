@@ -5,85 +5,85 @@ using SMS_MVCAPP.Services.Interfaces;
 
 namespace SMS_MVCAPP.Services.Implementations
 {
-    public class AdminService : IUserService
+    public class AdminService : IAdminService
     {
-        private readonly IUserRepository _adminRepository;
-        public AdminService(IUserRepository adminRepository)
+        private readonly IAdminRepository _adminRepository;
+        public AdminService(IAdminRepository adminRepository)
         {
             _adminRepository = adminRepository;
         }
 
         
         //done
-        public User CreateUser(User user)
+        public Admin CreateAdmin(Admin admin)
         {
-            user.RegisteredDate = DateTime.Now.ToShortDateString();
-            user.UserRole = (int)UserRole.Admin;
+            admin.RegisteredDate = DateTime.Now.ToShortDateString();
+            admin.UserRole = (int)UserRole.Admin;
             var alphabet = "abcdefghijklmnopqrstuvwxyz".ToUpper();
             var r1 = new Random().Next(25);
             var r2 = new Random().Next(25);
-            user.StaffId = $"AA{alphabet[r1]}{alphabet[r2]}" + new Random().Next(1100000);
-            _adminRepository.CreateUser(user);
-            return user;
+            admin.StaffId = $"AA{alphabet[r1]}{alphabet[r2]}" + new Random().Next(1100000);
+            _adminRepository.CreateAdmin(admin);
+            return admin;
         }
         
         //done
-        public void DeleteUser(User user)
+        public void DeleteAdmin(Admin admin)
         {
-            var admin = _adminRepository.GetUserByStaffId(user.StaffId);
-            _adminRepository.DeleteUser(admin);
+            admin = _adminRepository.GetAdminByStaffId(admin.StaffId);
+            _adminRepository.DeleteAdmin(admin);
         }     
         
         //done
-        public IList<User> GetAllUser()
+        public IList<Admin> GetAllAdmin()
         {
-            //var listOfAdmin = _adminRepository.GetAllUser();
-            //var listOfAdmin = _adminRepository.GetAllUser().Select(x => x.UserRole == (int)UserRole.Admin).ToList();
-            var listOfAdmin = _adminRepository.GetAllUser().Where(x => x.UserRole == (int)UserRole.Admin).Select(x => x).ToList();
+            //var listOfAdmin = _adminRepository.GetAllAdmin();
+            //var listOfAdmin = _adminRepository.GetAllAdmin().Select(x => x.AdminRole == (int)AdminRole.Admin).ToList();
+            var listOfAdmin = _adminRepository.GetAllAdmin().Where(x => x.UserRole == (int)UserRole.Admin).Select(x => x).ToList();
             return listOfAdmin;
         }
 
        
         //done
-        public User GetUserByEmail(string Email)
+        public Admin GetAdminByEmail(string Email)
         {
-            var admin = _adminRepository.GetUserByEmail(Email);
+            var admin = _adminRepository.GetAdminByEmail(Email);
             return admin;
         }
 
         //done
-        public User GetUserByStaffId(string staffId)
+        public Admin GetAdminByStaffId(string staffId)
         {
-            var admin = _adminRepository.GetUserByStaffId(staffId);
+            var admin = _adminRepository.GetAdminByStaffId(staffId);
             return admin;
         }
 
         //done
-        public User LoginUser(User user)
+        public Admin LoginAdmin(Admin admin)
         {
-            var admin = _adminRepository.LoginUser(user);
+            admin = _adminRepository.LoginAdmin(admin);
             return admin;
         }
 
         //done
-        public User UpdateUser(User user)
+        public Admin UpdateAdmin(Admin admin)
         {
-            var admin = _adminRepository.GetUserByStaffId(user.StaffId);
-            admin.FirstName = user.FirstName ?? admin.FirstName;
-            admin.LastName = user.LastName ?? admin.LastName ;
-            admin.HomeAddress = user.HomeAddress ?? admin.HomeAddress;
-            //admin.PhoneNumber = user.PhoneNumber ?? admin.PhoneNumber;
-            _adminRepository.UpdateUser(admin);
-            return admin;
+            var admins = _adminRepository.GetAdminByStaffId(admin.StaffId);
+            admins.FirstName = admin.FirstName ?? admins.FirstName;
+            admins.LastName = admin.LastName ?? admins.LastName ;
+            admins.HomeAddress = admin.HomeAddress ?? admins.HomeAddress;
+            //admins.PhoneNumber = admin.PhoneNumber ?? admin.PhoneNumber;
+            _adminRepository.UpdateAdmin(admins);
+            return admins;
         }
 
         //done
-        public User UpdateUserPassword(User user)
+        public Admin UpdateAdminPassword(Admin admin)
         {
-            var admin = _adminRepository.GetUserByStaffId(user.StaffId);
-            admin.Password = user.Password ?? admin.Password;
-            _adminRepository.UpdateUserPassword(admin);
-            return admin;
+            var admins = _adminRepository.GetAdminByStaffId(admin.StaffId);
+            admins.Password = admin.Password ?? admins.Password;
+            _adminRepository.UpdateAdminPassword(admins);
+            return admins;
         }
     }
 }

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SMS_MVCAPP.Models.Entities
 {
-    public class User
+    public class Admin
     {
         [Key]
         [DisplayName("Staff Number")]

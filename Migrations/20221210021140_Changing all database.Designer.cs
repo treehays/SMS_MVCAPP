@@ -10,8 +10,8 @@ using SMS_MVCAPP.Context;
 namespace SMSMVCAPP.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20221207181015_Admin Migration")]
-    partial class AdminMigration
+    [Migration("20221210021140_Changing all database")]
+    partial class Changingalldatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,45 +21,36 @@ namespace SMSMVCAPP.Migrations
                 .HasAnnotation("ProductVersion", "7.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("SMS_MVCAPP.Models.Entities.User", b =>
+            modelBuilder.Entity("SMS_MVCAPP.Models.Entities.Admin", b =>
                 {
                     b.Property<string>("StaffId")
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("GuarantorName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("HomeAddress")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("RegisteredDate")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int>("UserRole")
@@ -67,7 +58,47 @@ namespace SMSMVCAPP.Migrations
 
                     b.HasKey("StaffId");
 
-                    b.ToTable("users");
+                    b.ToTable("admins");
+                });
+
+            modelBuilder.Entity("SMS_MVCAPP.Models.Entities.Attendant", b =>
+                {
+                    b.Property<string>("StaffId")
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("GuarantorName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HomeAddress")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RegisteredDate")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("UserRole")
+                        .HasColumnType("int");
+
+                    b.HasKey("StaffId");
+
+                    b.ToTable("attendants");
                 });
 #pragma warning restore 612, 618
         }

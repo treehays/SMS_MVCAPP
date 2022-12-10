@@ -4,64 +4,64 @@ using SMS_MVCAPP.Repositories.Interfaces;
 
 namespace SMS_MVCAPP.Repositories.Implementations
 {
-	public class AttendantRepository : IUserRepository
-	{
-		private readonly ApplicationContext _context;
-		public AttendantRepository(ApplicationContext context)
-		{
-			_context = context;
-		}
+    public class AttendantRepository : IAttendantRepository
+    {
+        private readonly ApplicationContext _context;
+        public AttendantRepository(ApplicationContext context)
+        {
+            _context = context;
+        }
 
-		public User CreateUser(User user)
-		{
-			_context.users.Add(user);
-			_context.SaveChanges();
-			return user;
-		}
+        public Attendant CreateAttendant(Attendant attendant)
+        {
+            _context.attendants.Add(attendant);
+            _context.SaveChanges();
+            return attendant;
+        }
 
-		public void DeleteUser(User user)
-		{
-			_context.users.Remove(user);
-			_context.SaveChanges();
-		}
+        public void DeleteAttendant(Attendant attendant)
+        {
+            _context.attendants.Remove(attendant);
+            _context.SaveChanges();
+        }
 
-		public List<User> GetAllUser()
-		{
-			var attendant = _context.users.ToList();
-			return attendant;
-		}
+        public IList<Attendant> GetAllAttendant()
+        {
+            var attendant = _context.attendants.ToList();
+            return attendant;
+        }
 
-		public User GetUserByEmail(string Email)
-		{
-			var attendant = _context.users.SingleOrDefault(x => x.Email == Email);
-			return attendant;
-		}
+        public Attendant GetAttendantByEmail(string Email)
+        {
+            var attendant = _context.attendants.SingleOrDefault(x => x.Email == Email);
+            return attendant;
+        }
 
-		public User GetUserByStaffId(string staffId)
-		{
-			var attendant = _context.users.Find(staffId);
-			return attendant;
-		}
+        public Attendant GetAttendantByStaffId(string staffId)
+        {
+            var attendant = _context.attendants.Find(staffId);
+            return attendant;
+        }
 
-		public User LoginUser(User user)
-		{
-			var attendant = _context.users.SingleOrDefault(x => x.StaffId == user.StaffId && x.Password == user.Password);
-			return attendant;
-		}
+        public Attendant LoginAttendant(Attendant attendant)
+        {
+            attendant = _context.attendants.SingleOrDefault(x => x.StaffId == attendant.StaffId && x.Password == attendant.Password);
+            return attendant;
+        }
 
 
-		public User UpdateUser(User user)
-		{
-			_context.users.Update(user);
-			_context.SaveChanges();
-			return user;
-		}
+        public Attendant UpdateAttendant(Attendant attendant)
+        {
+            _context.attendants.Update(attendant);
+            _context.SaveChanges();
+            return attendant;
+        }
 
-		public User UpdateUserPassword(User user)
-		{
-			_context.users.Update(user);
-			_context.SaveChanges();
-			return user;
-		}
-	}
+        public Attendant UpdateAttendantPassword(Attendant attendant)
+        {
+            _context.attendants.Update(attendant);
+            _context.SaveChanges();
+            return attendant;
+        }
+    }
 }

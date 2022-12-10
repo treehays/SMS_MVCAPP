@@ -9,6 +9,7 @@ namespace SMS_MVCAPP.Context
         {
 
         }
-        public DbSet<User>users { get; set; }
+        public DbSet<Admin> admins { get; set; }
+        public DbSet<Attendant> attendants { get; set; }
     }
 }

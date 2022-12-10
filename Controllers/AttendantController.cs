@@ -7,8 +7,8 @@ namespace SMS_MVCAPP.Controllers
 {
     public class AttendantController : Controller
     {
-        private readonly IUserService _attendantService;
-        public AttendantController(IUserService attendantService)
+        private readonly IAttendantService _attendantService;
+        public AttendantController(IAttendantService attendantService)
         {
             _attendantService = attendantService;
         }
@@ -33,11 +33,11 @@ namespace SMS_MVCAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAttendant(User user)
+        public IActionResult CreateAttendant(Attendant attendant)
         {
-            if (_attendantService.GetUserByEmail(user.Email) == null)
+            if (_attendantService.GetAttendantByEmail(attendant.Email) == null)
             {
-                _attendantService.CreateUser(user);
+                _attendantService.CreateAttendant(attendant);
                 TempData["sucess"] = "Registrtion Sucessful.    ";
                 return RedirectToAction("Index", "Home");
             }
@@ -52,63 +52,63 @@ namespace SMS_MVCAPP.Controllers
 
         public IActionResult GetAllAttendants()
         {
-            var attendant = _attendantService.GetAllUser();
+            var attendant = _attendantService.GetAllAttendant();
             return View(attendant);
         }
 
         //get a single attendant by stff id
         public IActionResult GetAttendantByStaffId(string staffId)
         {
-            var attendant = _attendantService.GetUserByStaffId(staffId);
+            var attendant = _attendantService.GetAttendantByStaffId(staffId);
             return View(attendant);
         }
 
         //get a single attendant by email
         public IActionResult GetAttendantByEmail(string email)
         {
-            var attendant = _attendantService.GetUserByEmail(email);
+            var attendant = _attendantService.GetAttendantByEmail(email);
             return View(attendant);
         }
 
 
         //deleting attendant
-        public IActionResult DeleteAttendant(User user)
+        public IActionResult DeleteAttendant(Attendant attendant)
         {
-            _attendantService.DeleteUser(user);
+            _attendantService.DeleteAttendant(attendant);
             return RedirectToAction("GetAllAttendants");
         }
 
         public IActionResult DeleteAttendantConfirmPage(string staffId)
         {
-            var attendant = _attendantService.GetUserByStaffId(staffId);
+            var attendant = _attendantService.GetAttendantByStaffId(staffId);
             return View(attendant);
         }
 
-        //Updating User
+        //Updating Attendant
         public IActionResult UpdateAttendant(string staffId)
         {
-            var attendant = _attendantService.GetUserByStaffId(staffId);
+            var attendant = _attendantService.GetAttendantByStaffId(staffId);
             return View(attendant);
         }
 
         [HttpPost]
-        public IActionResult UpdateAttendant(User user)
+        public IActionResult UpdateAttendant(Attendant attendant)
         {
-            _attendantService.UpdateUser(user);
+            _attendantService.UpdateAttendant(attendant);
             return RedirectToAction(nameof(GetAllAttendants));
         }
 
-        //Updating User password
+        //Updating Attendant password
         public IActionResult UpdateAttendantPassword(string staffId)
         {
-            var attendant = _attendantService.GetUserByStaffId(staffId);
+            var attendant = _attendantService.GetAttendantByStaffId(staffId);
             return View(attendant);
         }
 
         [HttpPost]
-        public IActionResult UpdateAttendantPassword(User user)
+        public IActionResult UpdateAttendantPassword(Attendant attendant)
         {
-            _attendantService.UpdateUserPassword(user);
+            _attendantService.UpdateAttendantPassword(attendant);
             return RedirectToAction(nameof(GetAllAttendants));
         }
 
@@ -119,9 +119,9 @@ namespace SMS_MVCAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult LoginAttendant(User user)
+        public IActionResult LoginAttendant(Attendant attendant)
         {
-            var attendant = _attendantService.LoginUser(user);
+            attendant = _attendantService.LoginAttendant(attendant);
             if (attendant != null)
             {
                 TempData["success"] = "Login Successfully";

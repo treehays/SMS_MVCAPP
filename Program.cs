@@ -12,10 +12,10 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddMvc();
 var configuration = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseMySql(configuration, ServerVersion.AutoDetect(configuration)));
-builder.Services.AddScoped<IUserRepository, AdminRepository>();
-builder.Services.AddScoped<IUserService, AdminService>();
-builder.Services.AddScoped<IUserRepository, AttendantRepository>();
-builder.Services.AddScoped<IUserService, AttendantService>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IAttendantRepository, AttendantRepository>();
+builder.Services.AddScoped<IAttendantService, AttendantService>();
 
 var app = builder.Build();
 

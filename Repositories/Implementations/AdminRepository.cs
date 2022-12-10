@@ -4,7 +4,7 @@ using SMS_MVCAPP.Repositories.Interfaces;
 
 namespace SMS_MVCAPP.Repositories.Implementations
 {
-    public class AdminRepository : IUserRepository
+    public class AdminRepository : IAdminRepository
     {
         private readonly ApplicationContext _context;
         public AdminRepository(ApplicationContext context)
@@ -12,56 +12,56 @@ namespace SMS_MVCAPP.Repositories.Implementations
             _context = context;
         }
 
-        public User CreateUser(User user)
+        public Admin CreateAdmin(Admin admin)
         {
-            _context.users.Add(user);
+            _context.admins.Add(admin);
             _context.SaveChanges();
-            return user;
+            return admin;
         }
 
-        public void DeleteUser(User user)
+        public void DeleteAdmin(Admin admin)
         {
-            _context.users.Remove(user);
+            _context.admins.Remove(admin);
             _context.SaveChanges();
         }
 
-        public List<User> GetAllUser()
+        public IList<Admin> GetAllAdmin()
         {
-            var admins = _context.users.ToList();
+            var admins = _context.admins.ToList();
             return admins;
         }
 
-        public User GetUserByEmail(string Email)
+        public Admin GetAdminByEmail(string Email)
         {
-            var admin = _context.users.SingleOrDefault(x => x.Email == Email);
+            var admin = _context.admins.SingleOrDefault(x => x.Email == Email);
             return admin;
         }
 
-        public User GetUserByStaffId(string staffId)
+        public Admin GetAdminByStaffId(string staffId)
         {
-            var admin = _context.users.Find(staffId);
+            var admin = _context.admins.Find(staffId);
             return admin;
         }
 
-        public User LoginUser(User user)
+        public Admin LoginAdmin(Admin admin)
         {
-            var admin = _context.users.SingleOrDefault(x => x.StaffId == user.StaffId && x.Password == user.Password);
+            admin = _context.admins.SingleOrDefault(x => x.StaffId == admin.StaffId && x.Password == admin.Password);
             return admin;
         }
 
 
-        public User UpdateUser(User user)
+        public Admin UpdateAdmin(Admin admin)
         {
-            _context.users.Update(user);
+            _context.admins.Update(admin);
             _context.SaveChanges();
-            return user;
+            return admin;
         }
 
-        public User UpdateUserPassword(User user)
+        public Admin UpdateAdminPassword(Admin admin)
         {
-            _context.users.Update(user);
+            _context.admins.Update(admin);
             _context.SaveChanges();
-            return user;
+            return admin;
         }
     }
 }

@@ -5,83 +5,83 @@ using SMS_MVCAPP.Services.Interfaces;
 
 namespace SMS_MVCAPP.Services.Implementations
 {
-	public class AttendantService : IUserService
+	public class AttendantService : IAttendantService
 	{
-		private readonly IUserRepository _attendantRepository;
-		public AttendantService(IUserRepository attendantRepository)
+		private readonly IAttendantRepository _attendantRepository;
+		public AttendantService(IAttendantRepository attendantRepository)
 		{
 			_attendantRepository = attendantRepository;
 		}
 
 
 		
-		public User CreateUser(User user)
+		public Attendant CreateAttendant(Attendant attendant)
 		{
-			user.RegisteredDate = DateTime.Now.ToShortDateString();
-			user.UserRole = (int)UserRole.Attendant;
+			attendant.RegisteredDate = DateTime.Now.ToShortDateString();
+			attendant.UserRole = (int)UserRole.Attendant;
 			var alphabet = "abcdefghijklmnopqrstuvwxyz".ToUpper();
 			var r1 = new Random().Next(25);
 			var r2 = new Random().Next(25);
-			user.StaffId = $"AA{alphabet[r1]}{alphabet[r2]}" + new Random().Next(1100000);
-			_attendantRepository.CreateUser(user);
-			return user;
+			attendant.StaffId = $"AA{alphabet[r1]}{alphabet[r2]}" + new Random().Next(1100000);
+			_attendantRepository.CreateAttendant(attendant);
+			return attendant;
 		}
 
 		
-		public void DeleteUser(User user)
+		public void DeleteAttendant(Attendant attendant)
 		{
-			var attendant = _attendantRepository.GetUserByStaffId(user.StaffId);
-			_attendantRepository.DeleteUser(attendant);
+			attendant = _attendantRepository.GetAttendantByStaffId(attendant.StaffId);
+			_attendantRepository.DeleteAttendant(attendant);
 		}
 
 		
-		public IList<User> GetAllUser()
+		public IList<Attendant> GetAllAttendant()
 		{
-			//var listOfAttendant = _attendantRepository.GetAllUser();
-			var listOfAttendant = _attendantRepository.GetAllUser().Where(x => x.UserRole == (int)UserRole.Attendant).Select(x => x).ToList();
+			//var listOfAttendant = _attendantRepository.GetAllAttendant();
+			var listOfAttendant = _attendantRepository.GetAllAttendant().Where(x => x.UserRole == (int)UserRole.Attendant).Select(x => x).ToList();
 			return listOfAttendant;
 		}
 
 
 		
-		public User GetUserByEmail(string Email)
+		public Attendant GetAttendantByEmail(string Email)
 		{
-			var attendant = _attendantRepository.GetUserByEmail(Email);
+			var attendant = _attendantRepository.GetAttendantByEmail(Email);
 			return attendant;
 		}
 
 		
-		public User GetUserByStaffId(string staffId)
+		public Attendant GetAttendantByStaffId(string staffId)
 		{
-			var attendant = _attendantRepository.GetUserByStaffId(staffId);
+			var attendant = _attendantRepository.GetAttendantByStaffId(staffId);
 			return attendant;
 		}
 
-		public User LoginUser(User user)
+		public Attendant LoginAttendant(Attendant attendant)
 		{
-			var attendant = _attendantRepository.LoginUser(user);
-			return attendant;
-		}
-
-		
-		public User UpdateUser(User user)
-		{
-			var attendant = _attendantRepository.GetUserByStaffId(user.StaffId);
-			attendant.FirstName = user.FirstName ?? attendant.FirstName;
-			attendant.LastName = user.LastName ?? attendant.LastName;
-			attendant.HomeAddress = user.HomeAddress ?? attendant.HomeAddress;
-			//attendant.PhoneNumber = user.PhoneNumber ?? attendant.PhoneNumber;
-			_attendantRepository.UpdateUser(attendant);
+			attendant = _attendantRepository.LoginAttendant(attendant);
 			return attendant;
 		}
 
 		
-		public User UpdateUserPassword(User user)
+		public Attendant UpdateAttendant(Attendant attendant)
 		{
-			var attendant = _attendantRepository.GetUserByStaffId(user.StaffId);
-			attendant.Password = user.Password ?? attendant.Password;
-			_attendantRepository.UpdateUserPassword(attendant);
-			return attendant;
+			var attendants = _attendantRepository.GetAttendantByStaffId(attendant.StaffId);
+			attendants.FirstName = attendant.FirstName ?? attendants.FirstName;
+			attendants.LastName = attendant.LastName ?? attendants.LastName;
+			attendants.HomeAddress = attendant.HomeAddress ?? attendants.HomeAddress;
+			//attendant.PhoneNumber = attendant.PhoneNumber ?? attendant.PhoneNumber;
+			_attendantRepository.UpdateAttendant(attendants);
+			return attendants;
+		}
+
+		
+		public Attendant UpdateAttendantPassword(Attendant attendant)
+		{
+			var attendants = _attendantRepository.GetAttendantByStaffId(attendant.StaffId);
+			attendants.Password = attendant.Password ?? attendants.Password;
+			_attendantRepository.UpdateAttendantPassword(attendants);
+			return attendants;
 		}
 
 	}

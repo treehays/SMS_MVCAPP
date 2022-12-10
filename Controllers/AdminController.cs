@@ -7,8 +7,8 @@ namespace SMS_MVCAPP.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IUserService _adminService;
-        public AdminController(IUserService adminService)
+        private readonly IAdminService _adminService;
+        public AdminController(IAdminService adminService)
         {
             _adminService = adminService;
         }
@@ -32,11 +32,11 @@ namespace SMS_MVCAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAdmin(User user)
+        public IActionResult CreateAdmin(Admin admin)
         {
-            if (_adminService.GetUserByEmail(user.Email) == null)
+            if (_adminService.GetAdminByEmail(admin.Email) == null)
             {
-                _adminService.CreateUser(user);
+                _adminService.CreateAdmin(admin);
                 TempData["sucess"] = "Registrtion Sucessful.    ";
                 return RedirectToAction("Index", "Home");
             }
@@ -51,63 +51,63 @@ namespace SMS_MVCAPP.Controllers
 
         public IActionResult GetAllAdmins()
         {
-            var admin = _adminService.GetAllUser();
+            var admin = _adminService.GetAllAdmin();
             return View(admin);
         }
 
         //get a single admin by stff id
         public IActionResult GetAdminByStaffId(string staffId)
         {
-            var admin = _adminService.GetUserByStaffId(staffId);
+            var admin = _adminService.GetAdminByStaffId(staffId);
             return View(admin);
         }
 
         //get a single admin by email
         public IActionResult GetAdminByEmail(string email)
         {
-            var admin = _adminService.GetUserByEmail(email);
+            var admin = _adminService.GetAdminByEmail(email);
             return View(admin);
         }
 
 
         //deleting admin
-        public IActionResult DeleteAdmin(User user)
+        public IActionResult DeleteAdmin(Admin admin)
         {
-            _adminService.DeleteUser(user);
+            _adminService.DeleteAdmin(admin);
             return RedirectToAction("GetAllAdmins");
         }
 
         public IActionResult DeleteAdminConfirmPage(string staffId)
         {
-            var admin = _adminService.GetUserByStaffId(staffId);
+            var admin = _adminService.GetAdminByStaffId(staffId);
             return View(admin);
         }
 
-        //Updating User
+        //Updating Admin
         public IActionResult UpdateAdmin(string staffId)
         {
-            var admin = _adminService.GetUserByStaffId(staffId);
+            var admin = _adminService.GetAdminByStaffId(staffId);
             return View(admin);
         }
 
         [HttpPost]
-        public IActionResult UpdateAdmin(User user)
+        public IActionResult UpdateAdmin(Admin admin)
         {
-            _adminService.UpdateUser(user);
+            _adminService.UpdateAdmin(admin);
             return RedirectToAction(nameof(GetAllAdmins));
         }
 
-        //Updating User password
+        //Updating Admin password
         public IActionResult UpdateAdminPassword(string staffId)
         {
-            var admin = _adminService.GetUserByStaffId(staffId);
+            var admin = _adminService.GetAdminByStaffId(staffId);
             return View(admin);
         }
 
         [HttpPost]
-        public IActionResult UpdateAdminPassword(User user)
+        public IActionResult UpdateAdminPassword(Admin admin)
         {
-            _adminService.UpdateUserPassword(user);
+            _adminService.UpdateAdminPassword(admin);
             return RedirectToAction(nameof(GetAllAdmins));
         }
 
@@ -118,9 +118,9 @@ namespace SMS_MVCAPP.Controllers
         }
 
         [HttpPost]
-        public IActionResult LoginAdmin(User user)
+        public IActionResult LoginAdmin(Admin admin)
         {
-           var admin = _adminService.LoginUser(user);
+           admin = _adminService.LoginAdmin(admin);
             if (admin != null)
             {
                 TempData["success"] = "Login Successfully";
