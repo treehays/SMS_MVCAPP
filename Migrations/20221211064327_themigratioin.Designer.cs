@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SMS_MVCAPP.Context;
 
@@ -10,9 +11,11 @@ using SMS_MVCAPP.Context;
 namespace SMSMVCAPP.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20221211064327_themigratioin")]
+    partial class themigratioin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,8 +119,8 @@ namespace SMSMVCAPP.Migrations
                     b.Property<int>("ProductQuantity")
                         .HasColumnType("int");
 
-                    b.Property<double>("SellingPrice")
-                        .HasColumnType("double");
+                    b.Property<decimal>("SellingPrice")
+                        .HasColumnType("decimal(65,30)");
 
                     b.HasKey("BarCode");
 

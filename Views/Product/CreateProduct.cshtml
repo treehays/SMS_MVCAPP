@@ -1,0 +1,39 @@
+@model SMS_MVCAPP.Models.Entities.Product
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+<p>Add Product </p>
+
+<div>
+    <form asp-action="CreateProduct">
+        <div>
+            <label for="productName" asp-for="ProductName"></label>
+            <input  placeholder="Maggi Chicken" id="productName" name="ProductName" />
+        </div>
+        <div>
+            <label for="BarCode" asp-for="BarCode"></label>
+            <input placeholder="Maggi Chicken" id="BarCode" name="BarCode" />
+        </div>
+
+        <div>
+            <label for="SellingPrice" asp-for="SellingPrice"></label>
+            <input id="SellingPrice" placeholder="2000" name="SellingPrice" />
+        </div>
+
+        <div>
+            <label for="ProductQuantity" asp-for="ProductQuantity"></label>
+            <input id="ProductQuantity" placeholder="20" name="ProductQuantity" />
+        </div>
+        <div>
+            <label for="ProductCategory" asp-for="ProductCategory"></label>
+            <input id="ProductCategory" name="ProductCategory" />
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>

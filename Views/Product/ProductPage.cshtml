@@ -1,0 +1,23 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+
+@if (TempData["Success"] != null)
+{
+    <h2>@TempData["success"]</h2>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Created in successful</h1>
+    
+    <p>Admin <a asp-area="" asp-controller="Product" asp-action="GetAllProducts">GO HOME</a>.</p>
+
+</div>
+
+
+

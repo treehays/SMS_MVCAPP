@@ -37,12 +37,12 @@ namespace SMS_MVCAPP.Controllers
             if (_adminService.GetAdminByEmail(admin.Email) == null)
             {
                 _adminService.CreateAdmin(admin);
-                TempData["sucess"] = "Registrtion Sucessful.    ";
+                TempData["success"] = "Registration Successful.    ";
                 return RedirectToAction("Index", "Home");
             }
             else
             {
-                TempData["failed"] = "Registrtion Failed";
+                TempData["failed"] = "Registration Failed";
                 return View();
             }
         }

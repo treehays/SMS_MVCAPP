@@ -7,7 +7,7 @@ namespace SMS_MVCAPP.Models.Entities
         [Key]
         public string BarCode { get; set; }
         public string ProductName { get; set; }
-        public decimal SellingPrice { get; set; }
+        public double SellingPrice { get; set; }
         public int ProductQuantity { get; set; }
         public string ProductCategory { get; set; }
         public DateTime CreatedDate { get; set; }

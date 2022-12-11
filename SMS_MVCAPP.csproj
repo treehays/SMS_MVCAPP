@@ -17,4 +17,18 @@
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0-alpha.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Pages\Product\CreateProduct.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\DeleteProductConfirmPage.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\GetAllProducts.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\GetProductByBarCode.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\GetProductByCategory.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\GetProductByProductName.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\GetProductByQuantityRemaining.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\Index.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\ProductPage.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\UpdateProduct.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Product\UpdateProductQuantity.cshtml" />
+	</ItemGroup>
+
 </Project>
