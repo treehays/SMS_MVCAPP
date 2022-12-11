@@ -1,57 +1,3 @@
-﻿@model SMS_MVCAPP.Models.Entities.Admin
-@*
-	For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@*
-		
-*@
-
-@* <p>Registration Page </p> *@
-@* <div> *@
-@* 	<form asp-action="CreateAdmin"> *@
-@* 		<div> *@
-@* 			<label for="email" asp-for="Email"></label> *@
-@* 			<input type="email" placeholder="example@mail.com" id="email" name="Email" /> *@
-@* 		</div> *@
-@* *@
-@* 		<div> *@
-@* 			<label for="fname" asp-for="FirstName"></label> *@
-@* 			<input id="fname" name="FirstName" /> *@
-@* 		</div> *@
-@* *@
-@* 		<div> *@
-@* 			<label for="lname" asp-for="LastName"></label> *@
-@* 			<input id="lname" name="LastName" /> *@
-@* 		</div> *@
-@* 		<div> *@
-@* 			<label for="gen" asp-for="Gender"></label> *@
-@* 			<input id="gen" name="Gender" /> *@
-@* 		</div> *@
-@* 		<div> *@
-@* 			<label for="addr" asp-for="HomeAddress"></label> *@
-@* 			<input id="addr" name="HomeAddress" /> *@
-@* 		</div> *@
-@* 		<div> *@
-@* 			<label for="gar" asp-for="GuarantorName"></label> *@
-@* 			<input id="gar" name="GuarantorName" /> *@
-@* 		</div> *@
-@* 		<div> *@
-@* 			<label for="pwd" asp-for="Password"></label> *@
-@* 			<input type="password" id="pwd" name="Password" /> *@
-@* 		</div> *@
-@* 		<div> *@
-@* 			<label for="pno" asp-for="PhoneNumber"> </label> *@
-@* 			<input type="tel" id="pno" pattern="[0]{1}[7-9]{1}[0-1]{1}[0-9]{8}" placeholder="08123456789" name="PhoneNumber" /> *@
-@* 		</div> *@
-@* *@
-@* 		<div> *@
-@* 			<input type="submit" value="Submit" /> *@
-@* 		</div> *@
-@* 	</form> *@
-@* </div> *@
-
-
-    @{ Layout = null;}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,36 +142,23 @@
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
-<form asp-action="CreateAdmin">
+<form>
     <h3>PIEMALL</h3>
 
-    <label for="email" asp-for="Email"></label>
-    <input type="email" placeholder="example@mail.com" id="email" name="Email">
+    <label for="staffId">Staff ID <i class='far fa-address-card'></i></label>
+    <input type="text" placeholder="Staff Id or Email" id="staffId">
 
-    <label  for="fname" asp-for="FirstName"></label>
-    <input type="text" placeholder="First Name" id="fname" name="FirstName">
+    <label for="staffId">Staff ID <i class='far fa-address-card'></i></label>
+    <input type="text" placeholder="Staff Id or Email" id="staffId">
 
+    <label for="staffId">Staff ID <i class='far fa-address-card'></i></label>
+    <input type="text" placeholder="Staff Id or Email" id="staffId">
 
-    <label  for="lname" asp-for="LastName"></label>
-    <input type="text" placeholder="Last Name" id="lname" name="LastName" >
-    
-    
-    <label  for="gen" asp-for="Gender"></label>
-    <input type="text" placeholder="Gender" id="gen" name="Gender">
+    <label for="staffId">Staff ID <i class='far fa-address-card'></i></label>
+    <input type="text" placeholder="Staff Id or Email" id="staffId">
 
-    
-    <label for="addr" asp-for="HomeAddress"></label>
-    <input type="text" placeholder="Home Address" id="addr" name="HomeAddress" >
-
-    
-    <label for="pno" asp-for="PhoneNumber"></label>
-    <input type="tel" id="pno" pattern="[0]{1}[7-9]{1}[0-1]{1}[0-9]{8}" placeholder="08123456789" name="PhoneNumber">
-
-
-    
-    <label for="pwd" asp-for="Password"></label>
-    <input placeholder="password" type="password" id="pwd" name="Password">
-
+    <label for="staffId">Staff ID <i class='far fa-address-card'></i></label>
+    <input type="text" placeholder="Staff Id or Email" id="staffId">
 
     <label for="password">Password <i class='fas fa-user-secret'></i></label>
     <input type="password" placeholder="Password" id="password">
