@@ -8,7 +8,7 @@ namespace SMS_MVCAPP.Repositories.Interfaces
         Attendant LoginAttendant(Attendant attendant);
         void DeleteAttendant(Attendant attendant);
         Attendant GetAttendantByStaffId(string staffId);
-        Attendant GetAttendantByEmail(string Email);
+        Attendant GetAttendantByEmail(string email);
         IList<Attendant> GetAllAttendant();
         Attendant UpdateAttendant(Attendant attendant);
         Attendant UpdateAttendantPassword(Attendant attendant);

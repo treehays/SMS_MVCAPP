@@ -44,9 +44,9 @@ namespace SMS_MVCAPP.Services.Implementations
 
 
 		
-		public Attendant GetAttendantByEmail(string Email)
+		public Attendant GetAttendantByEmail(string email)
 		{
-			var attendant = _attendantRepository.GetAttendantByEmail(Email);
+			var attendant = _attendantRepository.GetAttendantByEmail(email);
 			return attendant;
 		}
 

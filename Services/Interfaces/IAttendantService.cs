@@ -9,7 +9,7 @@ namespace SMS_MVCAPP.Services.Interfaces
         void DeleteAttendant(Attendant attendant);
         //void DeleteAttendantByEmail(Attendant attendant);
         Attendant GetAttendantByStaffId(string staffId);
-        Attendant GetAttendantByEmail(string Email);
+        Attendant GetAttendantByEmail(string email);
         IList<Attendant> GetAllAttendant();
         Attendant UpdateAttendant(Attendant attendant);
         Attendant UpdateAttendantPassword(Attendant attendant);

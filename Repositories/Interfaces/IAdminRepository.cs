@@ -8,7 +8,7 @@ namespace SMS_MVCAPP.Repositories.Interfaces
         Admin LoginAdmin(Admin admin);
         void DeleteAdmin(Admin admin);
         Admin GetAdminByStaffId(string staffId);
-        Admin GetAdminByEmail(string Email);
+        Admin GetAdminByEmail(string email);
         IList<Admin> GetAllAdmin();
         Admin UpdateAdmin(Admin admin);
         Admin UpdateAdminPassword(Admin admin);

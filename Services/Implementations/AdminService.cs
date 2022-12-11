@@ -45,9 +45,9 @@ namespace SMS_MVCAPP.Services.Implementations
 
        
         //done
-        public Admin GetAdminByEmail(string Email)
+        public Admin GetAdminByEmail(string email)
         {
-            var admin = _adminRepository.GetAdminByEmail(Email);
+            var admin = _adminRepository.GetAdminByEmail(email);
             return admin;
         }
 

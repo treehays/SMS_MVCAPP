@@ -9,7 +9,7 @@ namespace SMS_MVCAPP.Services.Interfaces
         void DeleteAdmin(Admin admin);
         //void DeleteAdminByEmail(Admin admin);
         Admin GetAdminByStaffId(string staffId);
-        Admin GetAdminByEmail(string Email);
+        Admin GetAdminByEmail(string email);
         IList<Admin> GetAllAdmin();
         Admin UpdateAdmin(Admin admin);
         Admin UpdateAdminPassword(Admin admin);

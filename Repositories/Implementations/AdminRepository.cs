@@ -14,52 +14,52 @@ namespace SMS_MVCAPP.Repositories.Implementations
 
         public Admin CreateAdmin(Admin admin)
         {
-            _context.admins.Add(admin);
+            _context.Admins.Add(admin);
             _context.SaveChanges();
             return admin;
         }
 
         public void DeleteAdmin(Admin admin)
         {
-            _context.admins.Remove(admin);
+            _context.Admins.Remove(admin);
             _context.SaveChanges();
         }
 
         public IList<Admin> GetAllAdmin()
         {
-            var admins = _context.admins.ToList();
+            var admins = _context.Admins.ToList();
             return admins;
         }
 
-        public Admin GetAdminByEmail(string Email)
+        public Admin GetAdminByEmail(string email)
         {
-            var admin = _context.admins.SingleOrDefault(x => x.Email == Email);
+            var admin = _context.Admins.SingleOrDefault(x => x.Email == email);
             return admin;
         }
 
         public Admin GetAdminByStaffId(string staffId)
         {
-            var admin = _context.admins.Find(staffId);
+            var admin = _context.Admins.Find(staffId);
             return admin;
         }
 
         public Admin LoginAdmin(Admin admin)
         {
-            admin = _context.admins.SingleOrDefault(x => x.StaffId == admin.StaffId && x.Password == admin.Password);
+            admin = _context.Admins.SingleOrDefault(x => x.StaffId == admin.StaffId && x.Password == admin.Password);
             return admin;
         }
 
 
         public Admin UpdateAdmin(Admin admin)
         {
-            _context.admins.Update(admin);
+            _context.Admins.Update(admin);
             _context.SaveChanges();
             return admin;
         }
 
         public Admin UpdateAdminPassword(Admin admin)
         {
-            _context.admins.Update(admin);
+            _context.Admins.Update(admin);
             _context.SaveChanges();
             return admin;
         }
