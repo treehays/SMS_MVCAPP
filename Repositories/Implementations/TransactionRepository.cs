@@ -55,15 +55,5 @@ namespace SMS_MVCAPP.Repositories.Implementations
             return results;
         }
 
-        // public IList<Transaction> ViewTransactionAsExcel(string datedNow)
-        // {
-        //     var transactions = _context.Transactions.ToList();
-        //     return transactions;
-        // }
-        //
-        // public IList<Transaction> ViewTransactionAsHtml(string datedNow)
-        // {
-        //     
-        // }
     }
 }

@@ -6,3 +6,30 @@
 }
 
 <h2>title</h2>
+
+<div>
+    <p> <a asp-action="GetAllProducts">View all admin.</a></p>
+</div>
+<div>
+    <h1> Details...</h1>
+</div>
+<div>
+
+    <h4>@DateTime.Now</h4>
+</div>
+<div>
+    <p>@Html.DisplayFor(x => x.BarCode) </p>
+    <p> @Model.ProductName </p>
+    <p> @Model.SellingPrice @Model.ProductQuantity</p>
+    <p> @Model.CreatedDate</p>
+    <p> @Model.ProductCategory</p>
+    <p> @Model.ProductQuantity</p>
+    <p> @Model.BarCode</p>
+
+
+</div>
+<div>
+    <td><a asp-action="DeleteProduct" asp-route-barCode="@Model.BarCode">Confirmed Delete...</a></td>
+    <td><a asp-action="GetAllProducts">Not Now...</a></td>
+    @*<p><a asp-action="DeleteAdmin" asp-route-staffId="@Model.StaffId">Delete..</a></p>*@
+</div>

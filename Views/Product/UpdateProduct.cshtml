@@ -6,3 +6,35 @@
 }
 
 <h2>title</h2>
+
+<p>Update Product Detail </p>
+
+<div>
+    <form asp-action="UpdateProduct">
+        <div>
+            <label asp-for="BarCode"></label>
+            <input placeholder="@Model.BarCode" name="BarCode" value="@Model.BarCode" readonly/>
+        </div>
+        <div>
+            <label for="productName" asp-for="ProductName"></label>
+            <input value="@Model.ProductName" id="productName" name="ProductName" />
+        </div>
+
+        <div>
+            <label for="SellingPrice" asp-for="SellingPrice"></label>
+            <input id="SellingPrice" value="@Model.SellingPrice" name="SellingPrice" />
+        </div>
+
+        <div>
+            <label for="ProductQuantity" asp-for="ProductQuantity"></label>
+            <input id="ProductQuantity" value="@Model.ProductQuantity" name="ProductQuantity" />
+        </div>
+        <div>
+            <label for="ProductCategory" asp-for="ProductCategory"></label>
+            <input id="ProductCategory" value="@Model.ProductCategory" name="ProductCategory" />
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</div>

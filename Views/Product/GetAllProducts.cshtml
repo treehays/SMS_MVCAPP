@@ -5,17 +5,11 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>tTtitle</h2>
 
 
 <div>
-        @* public string BarCode { get; set; } *@
-        @* public string ProductName { get; set; } *@
-        @* public decimal SellingPrice { get; set; } *@
-        @* public int ProductQuantity { get; set; } *@
-        @* public string ProductCategory { get; set; } *@
-        @* public DateTime CreatedDate { get; set; } *@
-
+        
     <table>
         <thead>
         <tr>
@@ -40,7 +34,7 @@
                 
                 <td> <a asp-action="GetProductByBarCode" asp-route-barCode="@item.BarCode">GEt by Barcode..</a></td>
                 <td><a asp-action="GetProductByCategory" asp-route-category="@item.ProductCategory">Get by Category...</a></td>
-                <td><a asp-action="DeleteProduct" asp-route-barCode="@item.BarCode">Delete by BarCode...</a></td>
+                <td><a asp-action="DeleteProductConfirmPage" asp-route-barCode="@item.BarCode">Delete by BarCode...</a></td>
                 <td><a asp-action="UpdateProduct" asp-route-barCode="@item.BarCode">Update...</a></td>
                
             </tr>
