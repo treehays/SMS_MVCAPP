@@ -9,12 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
- 
+    <link rel="stylesheet" href="~/css/login.css"/>
+
+    </style>
 </head>
 <body>
 <div class="background">
-<!--    <div class="shape"></div>-->
+
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
@@ -28,12 +29,12 @@
     <input type="password" placeholder="Password" id="password" name="Password">
 
     <button><i class='fas fa-user-check'style='color:#080710'></i> Log In</button>
-<!--    <button>Register</button>-->
+
     <div class="social">
-<!--        <div class="go"><i class="fab fa-google"></i>  Google</div>-->
+
         <div class="go"><a asp-action="CreateAdmin"><i class='fas fa-user-circle'></i> Register</a> </div>
         <div class="fb"><a asp-action="LoginAdmin"><i class='fas fa-user-check'></i> Login</a> </div>
-<!--        <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>-->
+
     </div>
 </form>
 </body>
